@@ -11,7 +11,7 @@
     *{margin:0;padding:0;box-sizing:border-box}
 
     body{
-      font-family:Inter, sans-serif;
+      font-family:Inter,sans-serif;
       background: linear-gradient(-45deg,#020617,#0f172a,#020617);
       background-size:400% 400%;
       animation:bg 15s ease infinite;
@@ -27,8 +27,8 @@
 
     section{
       max-width:1100px;
-      margin:120px auto;
-      padding:50px;
+      margin:80px auto;
+      padding:40px;
       background:rgba(255,255,255,0.08);
       border-radius:25px;
       border:1px solid rgba(255,255,255,0.15);
@@ -36,58 +36,41 @@
       box-shadow:0 0 50px rgba(0,0,0,.4);
     }
 
-    h1,h2,h3{font-family:Poppins,sans-serif;}
-    h1{font-size:3rem}
-    h2{font-size:2.3rem;margin-bottom:20px}
-    p{color:#cbd5e1;margin-bottom:15px}
+    h1,h2,h3{font-family:Poppins,sans-serif}
+    h1{font-size:2.6rem}
+    h2{font-size:2.1rem;margin-bottom:20px}
+    p{color:#cbd5e1;margin-bottom:12px}
 
     .btn{
       display:inline-block;
+      margin-top:15px;
       padding:15px 40px;
       background:linear-gradient(45deg,#f97316,#fb923c);
       color:#020617;
       font-weight:700;
       border-radius:50px;
       text-decoration:none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease;
+      transition:0.3s;
     }
-
     .btn:hover{transform:scale(1.05)}
-
-    .btn::after{
-      content:"";
-      position:absolute;
-      top:0; left:-100%;
-      width:60%; height:100%;
-      background: linear-gradient(120deg,transparent, rgba(255,255,255,0.4), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .btn:hover::after{
-      left:100%;
-    }
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:25px;
     }
 
-    .card, .science-card{
+    .card,.science-card{
       padding:25px;
       border-radius:20px;
-      background:rgba(255,255,255,0.09);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background:rgba(255,255,255,.09);
+      transition:.3s;
       text-decoration:none;
       color:inherit;
-      display:block;
       text-align:center;
     }
-
-    .card:hover, .science-card:hover{
-      transform: translateY(-8px);
+    .card:hover,.science-card:hover{
+      transform:translateY(-8px);
       box-shadow:0 12px 35px rgba(255,255,255,0.15);
     }
 
@@ -99,11 +82,12 @@
       border:1px solid rgba(255,255,255,0.3);
     }
 
-    iframe{border-radius:20px;width:100%;height:315px}
+    iframe{border-radius:18px;width:100%;height:300px}
 
     footer{
       text-align:center;
       padding:30px;
+      font-size:0.9rem;
       opacity:.7;
     }
   </style>
@@ -121,26 +105,28 @@
   <h2>Ce que dit la science</h2>
   <div class="grid">
 
-    <a href="https://theses-doctorat.u-paris.fr/gedfs/these/2014/10/28180824/vd_Legouverneur_Gregory.pdf" 
-       class="science-card" target="_blank">
-       🧠 Amélioration cognitive (mémoire)
+    <!-- Amelis : jeux vidéo & seniors -->
+    <a href="https://institut.amelis-services.com/bien-vieillir/bien-etre/jeux-video-une-activite-benefique-pour-les-seniors/"
+       class="science-card" target="_blank" rel="noopener noreferrer">
+      🧠 Jeux vidéo & bien-être des seniors (mémoire & attention)
     </a>
 
-    <a href="https://www.researchgate.net/publication/281955919_Effets_de_la_pratique_des_jeux_video_sur_le_vieillissement_cognitif" 
-       class="science-card" target="_blank">
-       ⚡ Réflexes & rapidité mentale
+    <!-- Le Monde : déclin mental des seniors -->
+    <a href="https://www.lemonde.fr/technologies/article/2013/05/02/les-jeux-video-freinent-le-declin-mental-des-seniors_3169347_651865.html"
+       class="science-card" target="_blank" rel="noopener noreferrer">
+      📉 Les jeux vidéo freinent le déclin mental des seniors
     </a>
 
-    <a href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video" 
-       class="science-card" 
-       target="_blank" 
-       rel="noopener noreferrer">
-       👁️ Coordination œil-main & attention
+    <!-- Pour la Science : déclin cérébral -->
+    <a href="https://www.pourlascience.fr/theme/alzheimer/combattre-le-declin-cerebral-24687.php"
+       class="science-card" target="_blank" rel="noopener noreferrer">
+      🧪 Combattre le déclin cérébral – article scientifique
     </a>
 
-    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3561600/" 
-       class="science-card" target="_blank">
-       😄 Bien-être émotionnel & prévention du déclin
+    <!-- Femina : bienfaits e-sport -->
+    <a href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video"
+       class="science-card" target="_blank" rel="noopener noreferrer">
+      🎮 Bienfaits des jeux vidéo & e-sport sur le cerveau
     </a>
 
   </div>
@@ -150,28 +136,28 @@
   <h2>Les Bienfaits Concrets</h2>
   <div class="grid">
 
-    <a class="card" 
-       href="https://www.notretemps.com/sante/comprendre/jeux-video-et-seniors-une-solution-pour-rester-en-forme-228527" 
-       target="_blank">
-       🧠 Mémoire
+    <!-- Mémoire : Le Monde -->
+    <a href="https://www.lemonde.fr/technologies/article/2013/05/02/les-jeux-video-freinent-le-declin-mental-des-seniors_3169347_651865.html"
+       class="card" target="_blank" rel="noopener noreferrer">
+      🧠 Mémoire
     </a>
 
-    <a class="card" 
-       href="https://www.stakrn-agency.com/fr/blog/articles/les-bienfaits-des-jeux-video-sur-le-cerveau" 
-       target="_blank">
-       🎯 Attention
+    <!-- Attention : Amelis -->
+    <a href="https://institut.amelis-services.com/bien-vieillir/bien-etre/jeux-video-une-activite-benefique-pour-les-seniors/"
+       class="card" target="_blank" rel="noopener noreferrer">
+      🎯 Attention
     </a>
 
-    <a class="card" 
-       href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video" 
-       target="_blank">
-       👁️ Coordination
+    <!-- Coordination : Femina -->
+    <a href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video"
+       class="card" target="_blank" rel="noopener noreferrer">
+      👁️ Coordination
     </a>
 
-    <a class="card" 
-       href="https://www.stakrn-agency.com/fr/blog/articles/les-bienfaits-des-jeux-video-sur-le-cerveau" 
-       target="_blank">
-       💪 Confiance en soi
+    <!-- Confiance : Pour la Science (agir sur son cerveau / prévention) -->
+    <a href="https://www.pourlascience.fr/theme/alzheimer/combattre-le-declin-cerebral-24687.php"
+       class="card" target="_blank" rel="noopener noreferrer">
+      💪 Confiance & agir sur son cerveau
     </a>
 
   </div>
@@ -211,16 +197,15 @@
     <button class="btn" type="submit">Recevoir le guide</button>
   </form>
 
-  <p style="margin-top:15px">✅ Gratuit – ✅ Sans engagement – ✅ Envoi immédiat</p>
+  <p style="margin-top:15px">✅ Gratuit – ✅ Sans engagement – ✅ Envoi manuel personnalisé</p>
 </section>
 
 <section>
-  <h2>Sources & Études</h2>
+  <h2>Note importante</h2>
   <p style="font-size:0.9rem; color:#a0adc0;">
-    • Étude Université Paris-Descartes (mémoire & plasticité) <br>
-    • Études sur le vieillissement cognitif & jeux vidéo <br>
-    • Article Femina – coordination & bienfaits globaux <br>
-    • Revue scientifique sur le bien-être émotionnel <br>
+    Les liens ci-dessus renvoient vers des articles de presse ou de vulgarisation scientifique en français, qui présentent
+    des études sur les jeux vidéo, la mémoire, l'attention et la prévention du déclin cognitif chez les seniors.
+    Ce site a uniquement un but d'information et ne remplace en aucun cas un avis médical.
   </p>
 </section>
 
