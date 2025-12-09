@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Le sim racing après 60 ans stimule la mémoire, l'attention et la coordination. Études scientifiques, matériel et guide gratuit.">
 
-  <!-- SEO -->
+  <!-- SEO & SOCIAL -->
   <link rel="canonical" href="https://jeanpaulpoignand-web.github.io/-simracing-seniors/">
   <meta property="og:title" content="Sim Racing Seniors – Stimulez votre cerveau après 60 ans">
   <meta property="og:description" content="Mémoire, attention, coordination : découvrez les bienfaits du sim racing pour les seniors.">
@@ -23,63 +23,275 @@
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Inter,sans-serif;background:#020617;color:#f8fafc;scroll-behavior:smooth}
-    body.loaded{background:linear-gradient(-45deg,#020617,#0f172a,#1e1b4b,#020617);background-size:400% 400%;animation:bg 20s ease infinite}
-    @keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    body{
+      font-family:Inter,sans-serif;
+      background:#020617;
+      color:#f8fafc;
+      scroll-behavior:smooth;
+    }
+    body.loaded{
+      background:linear-gradient(-45deg,#020617,#0f172a,#1e1b4b,#020617);
+      background-size:400% 400%;
+      animation:bg 20s ease infinite;
+    }
+    @keyframes bg{
+      0%{background-position:0 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0 50%}
+    }
 
-    nav{position:sticky;top:0;z-index:1000;background:rgba(2,6,23,.95);backdrop-filter:blur(15px);padding:15px;border-bottom:1px solid rgba(255,255,255,.1)}
-    nav .container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-    nav .logo{font-family:Poppins,sans-serif;font-weight:800;font-size:1.4rem;background:linear-gradient(45deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    nav ul{display:flex;gap:30px;list-style:none}
-    nav a{text-decoration:none;color:#cbd5e1;font-weight:500}
+    /* NAV */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(2,6,23,.95);
+      backdrop-filter:blur(15px);
+      padding:15px;
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    nav .container{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    nav .logo{
+      font-family:Poppins,sans-serif;
+      font-weight:800;
+      font-size:1.4rem;
+      background:linear-gradient(45deg,#f97316,#fb923c);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+    nav a{
+      text-decoration:none;
+      color:#cbd5e1;
+      font-weight:500;
+      transition:color .25s;
+    }
     nav a:hover{color:#fb923c}
-    #burger{display:none;background:none;border:none;font-size:2rem;color:#fff;cursor:pointer}
+    #burger{
+      display:none;
+      background:none;
+      border:none;
+      font-size:2rem;
+      color:#fff;
+      cursor:pointer;
+    }
 
-    main{max-width:1200px;margin:auto;padding:0 20px}
-    section{margin:80px auto;padding:50px;background:rgba(255,255,255,.08);border-radius:30px;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 60px rgba(0,0,0,.5)}
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:0 20px;
+    }
 
-    .hero{text-align:center;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(139,92,246,.15));border:2px solid rgba(249,115,22,.3)}
+    section{
+      margin:80px auto;
+      padding:50px;
+      background:rgba(15,23,42,.95);
+      border-radius:30px;
+      border:1px solid rgba(148,163,184,.4);
+      box-shadow:
+        18px 18px 40px rgba(15,23,42,.9),
+        -10px -10px 30px rgba(148,163,184,.15);
+    }
+
+    .hero{
+      text-align:center;
+      background:linear-gradient(135deg,rgba(249,115,22,.16),rgba(79,70,229,.18));
+      border:2px solid rgba(249,115,22,.4);
+    }
 
     h1,h2,h3{font-family:Poppins,sans-serif}
-    h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:1rem}
-    h2{font-size:clamp(1.5rem,4vw,2.3rem);margin-bottom:1.5rem}
-    h3{color:#fb923c;font-size:1.2rem;margin-bottom:.5rem}
+    h1{
+      font-size:clamp(2rem,5vw,3rem);
+      margin-bottom:1rem;
+    }
+    h2{
+      font-size:clamp(1.5rem,4vw,2.3rem);
+      margin-bottom:1.5rem;
+    }
+    h3{
+      color:#fb923c;
+      font-size:1.2rem;
+      margin-bottom:.5rem;
+    }
 
-    .btn{display:inline-block;margin:20px 8px 0;padding:15px 40px;background:linear-gradient(45deg,#f97316,#fb923c);color:#020617;font-weight:700;border-radius:50px;text-decoration:none;transition:transform .25s}
-    .btn:hover{transform:translateY(-3px)}
+    p{line-height:1.7}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:2rem}
-    .card,.science-card,.sim-card{padding:25px;border-radius:25px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);transition:transform .25s,box-shadow .25s}
-    .card:hover,.science-card:hover,.sim-card:hover{transform:translateY(-6px);box-shadow:0 8px 25px rgba(0,0,0,.4)}
+    /* BOUTON 3D */
+    .btn{
+      display:inline-block;
+      margin:20px 8px 0;
+      padding:15px 40px;
+      background:linear-gradient(145deg,#f97316,#fb923c);
+      color:#020617;
+      font-weight:700;
+      border-radius:999px;
+      text-decoration:none;
+      cursor:pointer;
+      border:none;
+      font-size:1rem;
+      box-shadow:
+        0 10px 20px rgba(15,23,42,.8),
+        0 0 0 1px rgba(248,250,252,.1);
+      transform:translateY(0);
+      transition:transform .15s ease-out,box-shadow .15s ease-out;
+    }
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:
+        0 14px 30px rgba(15,23,42,.9),
+        0 0 0 1px rgba(248,250,252,.18);
+    }
+    .btn:active{
+      transform:translateY(1px);
+      box-shadow:
+        0 6px 10px rgba(15,23,42,.8),
+        inset 0 2px 4px rgba(0,0,0,.35);
+    }
 
-    /* ✅ VIDEOS SANS BANDES NOIRES */
-    .video-container{
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;
-      margin-top:20px;
-      border-radius:20px;
-      overflow:hidden;
-      background:linear-gradient(135deg,#020617,#0f172a,#1e1b4b);
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:2rem;
+    }
+
+    /* CARTES 3D (science / bienfaits / matériel) */
+    .card,
+    .science-card,
+    .sim-card{
+      border-radius:24px;
+      background:radial-gradient(circle at 0 0,#111827,#020617);
+      border:1px solid rgba(148,163,184,.4);
+      box-shadow:
+        10px 10px 24px rgba(15,23,42,.95),
+        -6px -6px 18px rgba(148,163,184,.15);
+      transition:transform .18s ease-out,box-shadow .18s ease-out;
+    }
+
+    .science-card{
+      display:block;
+      padding:18px 22px;
+      color:#e5e7eb;
+      text-decoration:none;
+      font-size:1.05rem;
+      font-weight:500;
+    }
+
+    .card{
       display:flex;
       align-items:center;
       justify-content:center;
-    }
-    .video-container iframe{
-      width:100%;
-      height:100%;
-      border:none;
-      border-radius:20px;
+      padding:24px;
+      font-size:1.2rem;
+      font-weight:600;
+      text-align:center;
     }
 
-    form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto}
-    form input{padding:15px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;font-size:1rem}
+    .sim-card{
+      padding:24px;
+    }
+    .sim-card p{margin-top:.4rem;margin-bottom:.8rem;color:#e5e7eb;font-size:.98rem}
+    .sim-card a{
+      display:inline-block;
+      margin-top:.5rem;
+      color:#93c5fd;
+      text-decoration:none;
+      font-weight:500;
+    }
+    .sim-card a::after{
+      content:" ↗";
+      font-size:.9rem;
+      opacity:.85;
+    }
+
+    /* Hover / Pressed 3D */
+    .card:hover,
+    .science-card:hover,
+    .sim-card:hover{
+      transform:translateY(-4px);
+      box-shadow:
+        14px 16px 30px rgba(15,23,42,1),
+        -5px -8px 20px rgba(148,163,184,.22);
+    }
+    .card:active,
+    .science-card:active,
+    .sim-card:active{
+      transform:translateY(1px);
+      box-shadow:
+        6px 6px 16px rgba(15,23,42,.9),
+        inset 3px 3px 8px rgba(15,23,42,.9),
+        inset -3px -3px 8px rgba(148,163,184,.25);
+    }
+
+    /* Vidéos */
+    .video-container{
+      position:relative;
+      width:100%;
+      padding-bottom:56.25%;
+      margin-top:20px;
+      border-radius:24px;
+      background:#020617;
+      box-shadow:
+        10px 10px 24px rgba(15,23,42,.95),
+        -6px -6px 18px rgba(148,163,184,.15);
+      overflow:hidden;
+    }
+    iframe{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      border:none;
+      border-radius:24px;
+    }
+
+    /* Formulaire */
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      max-width:500px;
+      margin:0 auto;
+    }
+    form input{
+      padding:15px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.4);
+      background:radial-gradient(circle at 0 0,#020617,#020617);
+      color:#fff;
+      font-size:1rem;
+      box-shadow:
+        6px 6px 18px rgba(15,23,42,.9),
+        -4px -4px 12px rgba(148,163,184,.15);
+    }
     form input::placeholder{color:#94a3b8}
 
-    footer{text-align:center;padding:40px;color:#94a3b8;font-size:.9rem}
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#94a3b8;
+      font-size:.9rem;
+    }
 
+    /* Responsive */
     @media(max-width:768px){
-      nav ul{display:none;position:absolute;top:60px;left:0;right:0;background:rgba(2,6,23,.98);flex-direction:column;padding:20px;gap:15px}
+      nav ul{
+        display:none;
+        position:absolute;
+        top:60px;left:0;right:0;
+        background:rgba(2,6,23,.98);
+        flex-direction:column;
+        padding:20px;
+        gap:15px;
+        border-bottom:1px solid rgba(255,255,255,.1);
+      }
       nav ul.active{display:flex}
       #burger{display:block}
       section{padding:25px;margin:40px 15px}
@@ -108,26 +320,37 @@
 
 <section class="hero">
   <h1>Le Sim Racing après 60 ans</h1>
-  <p>Stimulez votre mémoire, vos réflexes et votre concentration grâce au simulateur automobile.</p>
+  <p>
+    Stimulez votre mémoire, vos réflexes et votre concentration grâce au simulateur automobile.
+  </p>
   <a class="btn" href="#guide">Recevoir le guide gratuit</a>
 </section>
 
 <section id="science">
   <h2>Ce que dit la science</h2>
   <div class="grid">
-    <a class="science-card" href="https://institut.amelis-services.com/bien-vieillir/bien-etre/jeux-video-une-activite-benefique-pour-les-seniors/" target="_blank">Institut Amelis</a>
-    <a class="science-card" href="https://www.lemonde.fr/technologies/article/2013/05/02/les-jeux-video-freinent-le-declin-mental-des-seniors_3169347_651865.html" target="_blank">Le Monde</a>
-    <a class="science-card" href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video" target="_blank">Femina</a>
+    <a class="science-card" target="_blank" rel="noopener"
+       href="https://institut.amelis-services.com/bien-vieillir/bien-etre/jeux-video-une-activite-benefique-pour-les-seniors/">
+      🧠 Institut Amelis – Jeux vidéo bénéfiques
+    </a>
+    <a class="science-card" target="_blank" rel="noopener"
+       href="https://www.lemonde.fr/technologies/article/2013/05/02/les-jeux-video-freinent-le-declin-mental-des-seniors_3169347_651865.html">
+      📉 Le Monde – Les jeux vidéo freinent le déclin mental
+    </a>
+    <a class="science-card" target="_blank" rel="noopener"
+       href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video">
+      🎮 Femina – Bienfaits de l’e-sport
+    </a>
   </div>
 </section>
 
 <section id="bienfaits">
   <h2>Bienfaits concrets</h2>
   <div class="grid">
-    <div class="card">Mémoire</div>
-    <div class="card">Attention</div>
-    <div class="card">Coordination</div>
-    <div class="card">Confiance</div>
+    <div class="card">💭 Mémoire</div>
+    <div class="card">👁️ Attention</div>
+    <div class="card">🤝 Coordination</div>
+    <div class="card">💪 Confiance</div>
   </div>
 </section>
 
@@ -135,36 +358,60 @@
   <h2>Choisir son simulateur</h2>
   <div class="grid">
     <div class="sim-card">
-      <h3>Niveau 1</h3>
-      <a class="btn" href="https://www.thrustmaster.com/fr-fr/products/t598-x/" target="_blank">Thrustmaster</a>
+      <h3>🎮 Niveau 1 (~1000 €)</h3>
+      <p>Combo simple pour découvrir le sim racing à la maison.</p>
+      <a class="btn" target="_blank" rel="noopener"
+         href="https://www.thrustmaster.com/fr-fr/products/t598-x/">
+        Thrustmaster – Exemple de kit
+      </a>
     </div>
     <div class="sim-card">
-      <h3>Niveau 2</h3>
-      <a href="https://thefrenchsimracer.com/products/sim-lab-p1x-ultimate-cockpit" target="_blank">Châssis</a>
-      <a href="https://thefrenchsimracer.com/collections/simagic-simracing-bundles" target="_blank">Bundles</a>
-      <a href="https://thefrenchsimracer.com/collections/pedaliers-simagic" target="_blank">Pédaliers</a>
+      <h3>🏁 Niveau 2 (2000–5000 €)</h3>
+      <p>Matériel évolutif pour passionnés réguliers.</p>
+      <a target="_blank" rel="noopener"
+         href="https://thefrenchsimracer.com/products/sim-lab-p1x-ultimate-cockpit">
+        Châssis professionnel Sim-Lab P1X
+      </a>
+      <a target="_blank" rel="noopener"
+         href="https://thefrenchsimracer.com/collections/simagic-simracing-bundles">
+        Bundles Simagic complets
+      </a>
+      <a target="_blank" rel="noopener"
+         href="https://thefrenchsimracer.com/collections/pedaliers-simagic">
+        Pédaliers Simagic
+      </a>
     </div>
     <div class="sim-card">
-      <h3>Niveau 3</h3>
-      <a class="btn" href="https://lpsimu.fr/pages/nos-realisations" target="_blank">LP SIMU</a>
+      <h3>🏆 Niveau 3 (&gt;8000 €)</h3>
+      <p>Installation sur mesure, cockpit complet haut de gamme.</p>
+      <a class="btn" target="_blank" rel="noopener"
+         href="https://lpsimu.fr/pages/nos-realisations">
+        LP SIMU – Exemples de réalisations
+      </a>
     </div>
   </div>
 </section>
 
 <section id="temoignages">
-  <h2>Vidéos</h2>
-
+  <h2>Vidéos témoignages</h2>
   <div class="video-container">
-    <iframe loading="lazy" src="https://drive.google.com/file/d/1FVVfOB11RWrAFdqBaWd3SW8PfMX3Ewks/preview" title="Témoignage senior"></iframe>
+    <iframe loading="lazy"
+            src="https://drive.google.com/file/d/1FVVfOB11RWrAFdqBaWd3SW8PfMX3Ewks/preview"
+            title="Témoignage sim racing senior"></iframe>
   </div>
-
   <div class="video-container">
-    <iframe loading="lazy" src="https://www.youtube.com/embed/FPUWLgBmXjA" title="Vidéo YouTube"></iframe>
+    <iframe loading="lazy"
+            src="https://www.youtube.com/embed/FPUWLgBmXjA"
+            title="Témoignage YouTube sim racing senior"></iframe>
   </div>
 </section>
 
 <section id="guide">
   <h2>Recevoir le guide gratuit</h2>
+  <p style="margin-bottom:1.5rem">
+    Un guide simple pour bien démarrer : choix du matériel, premières courses,
+    sécurité et astuces pour progresser à votre rythme.
+  </p>
   <form action="https://formspree.io/f/xandroke" method="POST">
     <input type="text" name="prenom" placeholder="Votre prénom" required>
     <input type="email" name="email" placeholder="Votre email" required>
@@ -179,11 +426,21 @@
 </footer>
 
 <script>
+// Menu burger
 document.getElementById('burger').onclick = () =>
   document.getElementById('menu').classList.toggle('active');
 
-window.addEventListener('load', () =>
-  document.body.classList.add('loaded'));
+// Fond animé après chargement
+window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+// Validation email simple
+document.querySelector('form').onsubmit = e => {
+  const email = e.target.email.value.trim();
+  if (!email.includes('@')) {
+    e.preventDefault();
+    alert('Merci de saisir un email valide !');
+  }
+};
 </script>
 
 </body>
