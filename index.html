@@ -339,7 +339,7 @@
       border:none;
     }
 
-    /* FORMULAIRE */
+    /* FORMULAIRE (styles conservés même si plus de form, au cas où) */
     form{
       max-width:460px;
       margin:16px auto 0;
@@ -567,40 +567,27 @@
       <div id="video2" class="video-container hidden">
         <iframe loading="lazy"
           src="https://www.youtube.com/embed/FPUWLgBmXjA"
-          title="Vidéo YouTube sim racing"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          title="Vidéo YouTube sim racing">
         </iframe>
       </div>
 
     </div>
   </section>
 
-  <!-- GUIDE / CONTACT -->
+  <!-- GUIDE / CONTACT : VERSION SIMPLE SANS FORMULAIRE -->
   <section id="guide" class="glass-section">
     <h2>Recevoir le guide gratuit</h2>
     <p>
-      Envoyez-moi votre prénom et votre email, et je vous répondrai avec le guide
-      pour bien démarrer le sim racing après 60 ans.
+      Pour recevoir le guide complet, il suffit de m’envoyer un email.
+      Cliquez sur le bouton ci-dessous : votre application de messagerie va s’ouvrir automatiquement.
     </p>
 
-    <form action="mailto:jeanpaul.poignand@gmail.com" method="GET" enctype="text/plain">
-      <label>
-        Prénom
-        <input type="text" name="Prénom" placeholder="Votre prénom" required>
-      </label>
-      <label>
-        Email
-        <input type="email" name="Email" placeholder="votre@email.com" required>
-      </label>
-      <label>
-        Message (optionnel)
-        <textarea name="Message" placeholder="Par exemple : je débute totalement, que me conseillez-vous ?"></textarea>
-      </label>
-      <button type="submit" class="glass-btn">
-        <img src="glace.png" alt="">
-        Envoyer la demande de guide
-      </button>
-    </form>
+    <a
+      class="glass-btn"
+      href="mailto:jeanpaul.poignand@gmail.com?subject=Demande%20de%20guide%20Sim%20Racing%20Seniors&body=Bonjour%20Jean-Paul,%0D%0A%0D%0AJe%20souhaite%20recevoir%20le%20guide%20Sim%20Racing%20Seniors.%0D%0A%0D%0APr%C3%A9nom%20:%20%0D%0AMon%20niveau%20en%20jeux%20vid%C3%A9o%20:%20d%C3%A9butant%2Finterm%C3%A9diaire%2Fconfirm%C3%A9.%0D%0A%0D%0AMerci%20!">
+      <img src="glace.png" alt="">
+      Envoyer ma demande de guide
+    </a>
   </section>
 
 </main>
