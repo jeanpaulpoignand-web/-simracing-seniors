@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <title>Sim Racing Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
+
     body{
       font-family:Inter, sans-serif;
       background: linear-gradient(-45deg,#020617,#0f172a,#020617);
@@ -15,11 +18,13 @@
       color:#f8fafc;
       scroll-behavior:smooth;
     }
+
     @keyframes bg{
       0%{background-position:0% 50%}
       50%{background-position:100% 50%}
       100%{background-position:0% 50%}
     }
+
     section{
       max-width:1100px;
       margin:120px auto;
@@ -30,10 +35,12 @@
       backdrop-filter:blur(12px);
       box-shadow:0 0 50px rgba(0,0,0,.4);
     }
+
     h1,h2,h3{font-family:Poppins,sans-serif;}
     h1{font-size:3rem}
     h2{font-size:2.3rem;margin-bottom:20px}
     p{color:#cbd5e1;margin-bottom:15px}
+
     .btn{
       display:inline-block;
       padding:15px 40px;
@@ -46,7 +53,9 @@
       overflow: hidden;
       transition: transform 0.3s ease;
     }
+
     .btn:hover{transform:scale(1.05)}
+
     .btn::after{
       content:"";
       position:absolute;
@@ -55,14 +64,17 @@
       background: linear-gradient(120deg,transparent, rgba(255,255,255,0.4), transparent);
       transition: left 0.6s ease;
     }
+
     .btn:hover::after{
       left:100%;
     }
+
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
       gap:25px;
     }
+
     .card, .science-card{
       padding:25px;
       border-radius:20px;
@@ -70,12 +82,25 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-decoration:none;
       color:inherit;
+      display:block;
+      text-align:center;
     }
+
     .card:hover, .science-card:hover{
       transform: translateY(-8px);
       box-shadow:0 12px 35px rgba(255,255,255,0.15);
     }
+
+    input{
+      width:100%;
+      padding:15px;
+      margin-bottom:15px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.3);
+    }
+
     iframe{border-radius:20px;width:100%;height:315px}
+
     footer{
       text-align:center;
       padding:30px;
@@ -83,6 +108,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <section>
@@ -94,25 +120,60 @@
 <section>
   <h2>Ce que dit la science</h2>
   <div class="grid">
-    <a href="https://theses-doctorat.u-paris.fr/gedfs/these/2014/10/28180824/vd_Legouverneur_Gregory.pdf" class="science-card" target="_blank">🧠 Amélioration cognitive (plast­icité & mémoire)</a>
-    <a href="https://www.researchgate.net/publication/281955919_Effets_de_la_pratique_des_jeux_video_sur_le_vieillissement_cognitif" class="science-card" target="_blank">⚡ Réflexes & traitement rapide</a>
+
+    <a href="https://theses-doctorat.u-paris.fr/gedfs/these/2014/10/28180824/vd_Legouverneur_Gregory.pdf" 
+       class="science-card" target="_blank">
+       🧠 Amélioration cognitive (mémoire)
+    </a>
+
+    <a href="https://www.researchgate.net/publication/281955919_Effets_de_la_pratique_des_jeux_video_sur_le_vieillissement_cognitif" 
+       class="science-card" target="_blank">
+       ⚡ Réflexes & rapidité mentale
+    </a>
+
     <a href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video" 
-   class="science-card" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   👁️ Coordination œil-main & attention
-</a>
-    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3561600/" class="science-card" target="_blank">😄 Bien-être émotionnel & prévention déclin</a>
+       class="science-card" 
+       target="_blank" 
+       rel="noopener noreferrer">
+       👁️ Coordination œil-main & attention
+    </a>
+
+    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3561600/" 
+       class="science-card" target="_blank">
+       😄 Bien-être émotionnel & prévention du déclin
+    </a>
+
   </div>
 </section>
 
 <section>
   <h2>Les Bienfaits Concrets</h2>
   <div class="grid">
-    <div class="card">Mémoire</div>
-    <div class="card">Attention</div>
-    <div class="card">Coordination</div>
-    <div class="card">Confiance en soi</div>
+
+    <a class="card" 
+       href="https://www.notretemps.com/sante/comprendre/jeux-video-et-seniors-une-solution-pour-rester-en-forme-228527" 
+       target="_blank">
+       🧠 Mémoire
+    </a>
+
+    <a class="card" 
+       href="https://www.stakrn-agency.com/fr/blog/articles/les-bienfaits-des-jeux-video-sur-le-cerveau" 
+       target="_blank">
+       🎯 Attention
+    </a>
+
+    <a class="card" 
+       href="https://www.femina.fr/article/e-sport-quels-sont-les-bienfaits-de-jouer-aux-jeux-video" 
+       target="_blank">
+       👁️ Coordination
+    </a>
+
+    <a class="card" 
+       href="https://www.stakrn-agency.com/fr/blog/articles/les-bienfaits-des-jeux-video-sur-le-cerveau" 
+       target="_blank">
+       💪 Confiance en soi
+    </a>
+
   </div>
 </section>
 
@@ -145,8 +206,8 @@
   <h2>Recevez votre guide gratuit</h2>
 
   <form action="https://formspree.io/f/xandroke" method="POST">
-    <input type="text" name="prenom" placeholder="Votre prénom" required style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);">
-    <input type="email" name="email" placeholder="Votre email" required style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);">
+    <input type="text" name="prenom" placeholder="Votre prénom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
     <button class="btn" type="submit">Recevoir le guide</button>
   </form>
 
@@ -156,11 +217,10 @@
 <section>
   <h2>Sources & Études</h2>
   <p style="font-size:0.9rem; color:#a0adc0;">
-    • Étude « Amélioration cognitive… » (2014, Université Paris-Descartes) <br>
-    • « Effets de la pratique des jeux vidéo sur le vieillissement cognitif » (2013) <br>
-    • Article « Jeux vidéo et smartphones : quels impacts… » (2018) <br>
-    • Revue « Video games as a Means to Reduce Age-Related Decline » (2013) <br>
-    • Divers travaux sur les serious games & seniors  <br>
+    • Étude Université Paris-Descartes (mémoire & plasticité) <br>
+    • Études sur le vieillissement cognitif & jeux vidéo <br>
+    • Article Femina – coordination & bienfaits globaux <br>
+    • Revue scientifique sur le bien-être émotionnel <br>
   </p>
 </section>
 
