@@ -18,7 +18,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+  
   <style>
+    /* ----------------------------------------------------------------------------------- */
+    /* AUDIT CSS: Intégration de l'élément Ripples et styles existants */
+    /* ----------------------------------------------------------------------------------- */
+    
     *{margin:0;padding:0;box-sizing:border-box}
     body{
       font-family:Inter,sans-serif;
@@ -37,6 +44,19 @@
       outline-offset:3px;
       border-radius:6px;
     }
+    
+    /* NOUVEAU: Conteneur WebGL/Ripples pour la déformation de l'arrière-plan */
+    #ripples-background {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Le fond doit être visible pour que Ripples le déforme */
+        background: radial-gradient(circle at top,#111827 0,#020617 55%,#020617 100%); 
+        z-index: 999; /* Juste sous la nav (1000) */
+        pointer-events: none; /* Permet aux éléments en dessous de rester cliquables */
+    }
 
     /* NAVBAR */
     nav{
@@ -45,6 +65,7 @@
       z-index:1000;
       background:rgba(3,7,18,.92);
       backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px); /* Ajout pour meilleure compatibilité iOS */
       border-bottom:1px solid rgba(148,163,184,.25);
     }
     .nav-inner{
@@ -54,7 +75,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      position:relative;             /* pour la goutte */
+      position:relative;
       --blob-x:-999px;
       --blob-scale:1;
     }
@@ -364,7 +385,7 @@
       }
       .nav-links.open{display:flex}
       #burger{display:block}
-      /* on cache la goutte sur mobile, pas de survol */
+      /* on cache la goutte CSS sur mobile */
       .nav-blob{display:none;}
 
       main{
@@ -385,9 +406,11 @@
 </head>
 
 <body id="top">
+
+<div id="ripples-background"></div>
+
 <nav>
   <div class="nav-inner">
-    <!-- Goutte qui glisse sous le menu -->
     <div class="nav-blob" aria-hidden="true"></div>
 
     <div class="brand">
@@ -494,66 +517,118 @@
 </footer>
 
 <script>
-  // fond doux au chargement
-  window.addEventListener('load',()=>document.body.classList.add('loaded'));
+  // -----------------------------------------------------------------------------------
+  // AUDIT JAVASCRIPT: Logique Ripples intégrée et gestion tactile
+  // -----------------------------------------------------------------------------------
+  let ripplesEffect;
 
-  // menu burger mobile
-  const burger=document.getElementById('burger');
-  const navLinks=document.getElementById('navLinks');
-  if(burger && navLinks){
-    burger.addEventListener('click',()=>{navLinks.classList.toggle('open')});
-    navLinks.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click',()=>navLinks.classList.remove('open'));
+  window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+
+    // NOUVEAU: Initialisation de l'effet Ripples sur l'arrière-plan
+    $('#ripples-background').ripples({
+        resolution: 256, // Qualité pour un bon équilibre performance/rendu
+        dropRadius: 25,  // Taille de la goutte plus visible
+        perturbance: 0.03, // Faible déformation pour un effet "verre" subtil
+        interactive: false // Désactive l'interaction par défaut
     });
-  }
+    
+    // Récupération de l'instance Ripples pour les appels manuels
+    ripplesEffect = $('#ripples-background').data('ripples');
 
-  // goutte qui suit les onglets (desktop uniquement)
-  const navInner=document.querySelector('.nav-inner');
-  const blob=document.querySelector('.nav-blob');
-  const links=document.querySelectorAll('.nav-links a');
-
-  if(navInner && blob){
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
-
-    function activateBlob(link){
-      if(isMobile()) return; // pas d’effet sur mobile
-      const rect=link.getBoundingClientRect();
-      const navRect=navInner.getBoundingClientRect();
-      const center = rect.left + rect.width/2 - navRect.left;
-      const baseWidth = 140;
-      let scale = rect.width / baseWidth;
-      scale = Math.max(0.9, Math.min(scale, 1.4));
-
-      navInner.style.setProperty('--blob-x', center + 'px');
-      navInner.style.setProperty('--blob-scale', scale.toString());
-      navInner.classList.add('has-blob');
+    // menu burger mobile (Logique existante)
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    if (burger && navLinks) {
+        burger.addEventListener('click', () => { navLinks.classList.toggle('open') });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
     }
 
-    links.forEach(link=>{
-      link.addEventListener('mouseenter',()=>activateBlob(link));
-      link.addEventListener('focus',()=>activateBlob(link));
-    });
+    // Goutte CSS qui suit les onglets (desktop uniquement)
+    const navInner = document.querySelector('.nav-inner');
+    const blob = document.querySelector('.nav-blob');
+    const links = document.querySelectorAll('.nav-links a');
 
-    navInner.addEventListener('mouseleave',()=>{
-      navInner.classList.remove('has-blob');
-    });
+    if (navInner && blob && ripplesEffect) {
+        const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+        const navRect = navInner.getBoundingClientRect();
+        const $nav = $('nav'); // Utilisation de jQuery pour la gestion des événements tactiles
+        
+        function activateBlob(link) {
+            // Logique CSS de la goutte (pour le style, reste désactivée sur mobile)
+            if (isMobile()) return; 
+            
+            const rect = link.getBoundingClientRect();
+            const center = rect.left + rect.width / 2 - navRect.left;
+            const baseWidth = 140;
+            let scale = rect.width / baseWidth;
+            scale = Math.max(0.9, Math.min(scale, 1.4));
 
-    window.addEventListener('resize',()=>{
-      if(isMobile()){
-        navInner.classList.remove('has-blob');
-      }
-    });
-  }
+            navInner.style.setProperty('--blob-x', center + 'px');
+            navInner.style.setProperty('--blob-scale', scale.toString());
+            navInner.classList.add('has-blob');
+        }
 
-  // boutons vidéos : ouvrir / fermer
-  document.querySelectorAll('.video-toggle').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const target=document.getElementById(btn.dataset.target);
-      if(!target) return;
-      target.classList.toggle('hidden');
-      if(!target.classList.contains('hidden')){
-        window.scrollBy({top:target.getBoundingClientRect().top-120,behavior:'smooth'});
-      }
+        // NOUVEAU : Fonction pour créer l'onde (goutte WebGL)
+        function createRippleAtEvent(e) {
+            // Récupère les coordonnées du touch ou de la souris
+            const clientX = e.clientX || (e.originalEvent.touches && e.originalEvent.touches[0].clientX);
+            const clientY = e.clientY || (e.originalEvent.touches && e.originalEvent.touches[0].clientY);
+            
+            if (clientX !== undefined && clientY !== undefined) {
+                 // Déclenche une onde au point d'interaction
+                ripplesEffect.drop(clientX, clientY, 25, 0.03); 
+            }
+        }
+        
+        // Goutte CSS : Suivi au survol (Desktop)
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => activateBlob(link));
+            link.addEventListener('focus', () => activateBlob(link));
+        });
+
+        // Goutte CSS : Disparition (Desktop)
+        navInner.addEventListener('mouseleave', () => {
+            navInner.classList.remove('has-blob');
+        });
+        
+        // NOUVEAU : Goutte WebGL (Déformation) : Activation au touch/survol
+        // On attache les événements à la balise NAV entière
+        $nav.on('mouseenter focusin touchstart', function(e) {
+            // Déclenche une onde initiale
+            createRippleAtEvent(e); 
+            
+            // Crée l'effet de "glissement" sur le mouvement (touch ou souris)
+            $nav.on('mousemove touchmove', createRippleAtEvent);
+        });
+
+        // NOUVEAU : Arrêt de la déformation
+        $nav.on('mouseleave focusout touchend', function() {
+            $nav.off('mousemove touchmove', createRippleAtEvent);
+        });
+
+        // Gestion du redimensionnement
+        window.addEventListener('resize', () => {
+            if (isMobile()) {
+                navInner.classList.remove('has-blob');
+            }
+            // Nécessaire pour s'assurer que le canvas Ripples est à la bonne taille
+            $('#ripples-background').ripples('run');
+        });
+    }
+
+    // boutons vidéos : ouvrir / fermer (Logique existante)
+    document.querySelectorAll('.video-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = document.getElementById(btn.dataset.target);
+            if (!target) return;
+            target.classList.toggle('hidden');
+            if (!target.classList.contains('hidden')) {
+                window.scrollBy({ top: target.getBoundingClientRect().top - 120, behavior: 'smooth' });
+            }
+        });
     });
   });
 </script>
