@@ -43,7 +43,7 @@
       position:sticky;
       top:0;
       z-index:1000;
-      /* 🎯 FOND POUR RIPPLES (VOTRE IMAGE) */
+      /* FOND POUR RIPPLES */
       background-image: url('IMG_4991.jpeg'); 
       background-size: cover;
       background-position: center;
@@ -75,7 +75,7 @@
       font-weight:700;
       font-size:1.25rem;
       color:#e0f2fe;
-      /* 🎯 AJOUT LISIBILITÉ */
+      /* AMÉLIORATION LISIBILITÉ */
       text-shadow: 0 0 6px #000, 0 0 4px #000; 
     }
     .brand img{width:30px;height:30px;object-fit:contain}
@@ -92,7 +92,7 @@
       padding:10px 16px;
       border-radius:999px;
       transition:color .2s, background .2s;
-      /* 🎯 AJOUT LISIBILITÉ */
+      /* AMÉLIORATION LISIBILITÉ */
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.6); 
     }
     .nav-links a::after{
@@ -160,13 +160,61 @@
     h3{font-size:1.1rem;color:#e5e7eb;margin-bottom:16px;font-family:Poppins,sans-serif;}
     .hero{padding:48px 32px;background:radial-gradient(circle at top,#1e293b,#020617);}
     .hero p{max-width:640px;margin:0 auto;color:#cbd5f5;}
-    .glass-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;margin:16px auto;border-radius:999px;background:radial-gradient(circle at 20% 0,rgba(255,255,255,.55),transparent 60%),radial-gradient(circle at 80% 120%,rgba(15,23,42,.7),#020617);color:#fff;font-weight:600;border:1px solid rgba(148,163,184,.6);box-shadow:0 18px 35px rgba(15,23,42,.9),inset 0 0 12px rgba(255,255,255,.25);transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;}
+    
+    /* BOUTONS - COHÉRENCE DU DÉGRADÉ */
+    .glass-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 32px;
+      margin:16px auto;
+      border-radius:999px;
+      /* 🎯 DÉGRADÉ UNIFIÉ : Maintient l'effet de réflexion (white.55) 
+         et introduit la couleur des liens de navigation (blue/purple) */
+      background:
+        radial-gradient(circle at 20% 0,rgba(255,255,255,.55),transparent 60%),
+        linear-gradient(135deg, rgba(125, 211, 252, 0.4), rgba(165, 180, 252, 0.4));
+        
+      color:#fff;
+      font-weight:600;
+      border:1px solid rgba(148,163,184,.6);
+      box-shadow:
+        0 18px 35px rgba(15,23,42,.9),
+        inset 0 0 12px rgba(255,255,255,.25);
+      transition:transform .2s,box-shadow .2s,background .2s;
+      cursor:pointer;
+    }
     .glass-btn img{width:22px;height:22px;}
-    .glass-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 26px 45px rgba(15,23,42,.95),inset 0 0 16px rgba(255,255,255,.35);}
+    .glass-btn:hover{
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:
+        0 26px 45px rgba(15,23,42,.95),
+        inset 0 0 16px rgba(255,255,255,.35);
+    }
+
+    /* SCIENCE - COHÉRENCE DU DÉGRADÉ */
     .science-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:24px;margin-top:24px;}
-    .science-link{min-width:200px;padding:16px 32px;border-radius:999px;background:rgba(15,23,42,.8);border:1px solid rgba(148,163,184,.6);box-shadow:0 14px 32px rgba(15,23,42,.95);transition:transform .2s,background .2s,box-shadow .2s;}
-    .science-link:hover{transform:translateY(-2px);background:rgba(30,41,59,.9);box-shadow:0 20px 40px rgba(15,23,42,1);}
-    .bienfaits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:24px;justify-items:center;}
+    .science-link{
+      min-width:200px;
+      padding:16px 32px;
+      border-radius:999px;
+      /* 🎯 DÉGRADÉ UNIFIÉ */
+      background:linear-gradient(135deg, rgba(125, 211, 252, 0.3), rgba(165, 180, 252, 0.3));
+      
+      border:1px solid rgba(148,163,184,.6);
+      box-shadow:0 14px 32px rgba(15,23,42,.95);
+      transition:transform .2s,background .2s,box-shadow .2s;
+    }
+    .science-link:hover{
+      transform:translateY(-2px);
+      /* Maintient un fond plus foncé au survol, mais avec le dégradé bleu/violet */
+      background:linear-gradient(135deg, rgba(125, 211, 252, 0.5), rgba(165, 180, 252, 0.5));
+      box-shadow:0 20px 40px rgba(15,23,42,1);
+    }
+    
+    /* ... (le reste du CSS n'est pas modifié) ... */
+
     .bienfait-card{width:100%;max-width:380px;padding:24px;border-radius:24px;background:rgba(15,23,42,.92);border:1px solid rgba(148,163,184,.5);box-shadow:0 18px 36px rgba(15,23,42,1);text-align:left;}
     .bienfait-title{font-weight:600;margin-bottom:8px;color:#e5e7eb;}
     .bienfait-text{color:#cbd5f5;font-size:.98rem;line-height:1.7;}
@@ -371,43 +419,28 @@
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
 
 <script>
-    // SCRIPT D'ACTIVATION DE L'EFFET DE VAGUES (RIPPLES)
     $(document).ready(function() {
         
-        // --------------------------------------------------------------------------
-        // CONFIGURATION RIPPLES
-        // --------------------------------------------------------------------------
-        
-        // Cible : La balise <nav> pour limiter l'effet au menu
         const targetElement = 'nav'; 
-        
-        // Image de fond : Le chemin de l'image que vous avez téléversé.
         const imagePath = 'IMG_4991.jpeg'; 
 
-        // --------------------------------------------------------------------------
-        // ACTIVATION DE L'EFFET
-        // --------------------------------------------------------------------------
-        
         if (typeof jQuery.fn.ripples !== 'undefined') {
             $(targetElement).ripples({
                 imageUrl: imagePath, 
-                // Paramètres de vagues subtils pour un effet "Verre"
                 dropRadius: 12,       
                 perturbance: 0.012,   
                 interactive: true 
             });
 
-            // Gère le redimensionnement de l'effet
             $(window).on('resize', function() {
                 $(targetElement).ripples('updateSize');
             });
             
         } else {
-            console.error("jQuery Ripples n'a pas pu être chargé ou initialisé. Vérifiez les liens CDN.");
+            console.error("jQuery Ripples n'a pas pu être chargé ou initialisé.");
         }
     });
 </script>
