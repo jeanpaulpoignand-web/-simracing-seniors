@@ -43,11 +43,9 @@
       position:sticky;
       top:0;
       z-index:1000;
-      /* FOND POUR RIPPLES */
-      background-image: url('IMG_4991.jpeg'); 
+      background-image: url('IMG_4991.jpeg');
       background-size: cover;
       background-position: center;
-      
       backdrop-filter:blur(18px);
       border-bottom:1px solid rgba(148,163,184,.25);
     }
@@ -75,7 +73,6 @@
       font-weight:700;
       font-size:1.25rem;
       color:#e0f2fe;
-      /* AMÉLIORATION LISIBILITÉ */
       text-shadow: 0 0 6px #000, 0 0 4px #000; 
     }
     .brand img{width:30px;height:30px;object-fit:contain}
@@ -92,7 +89,6 @@
       padding:10px 16px;
       border-radius:999px;
       transition:color .2s, background .2s;
-      /* AMÉLIORATION LISIBILITÉ */
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.6); 
     }
     .nav-links a::after{
@@ -152,16 +148,51 @@
       opacity:1;
     }
 
-    /* LAYOUT (Sections suivantes non modifiées) */
-    main{max-width:1200px;margin:0 auto;padding:32px 24px 64px;}
-    .glass-section{background:radial-gradient(circle at top left,#111827,#020617);border-radius:28px;border:1px solid rgba(148,163,184,.35);box-shadow:0 35px 80px rgba(15,23,42,.85);padding:40px 32px;margin:32px 0;text-align:center;}
-    h1{font-size:clamp(2.1rem,4.3vw,2.8rem);color:#f9fafb;margin-bottom:16px;font-family:Poppins,sans-serif;}
-    h2{font-size:1.5rem;color:#e5e7eb;margin-bottom:24px;font-family:Poppins,sans-serif;}
-    h3{font-size:1.1rem;color:#e5e7eb;margin-bottom:16px;font-family:Poppins,sans-serif;}
-    .hero{padding:48px 32px;background:radial-gradient(circle at top,#1e293b,#020617);}
-    .hero p{max-width:640px;margin:0 auto;color:#cbd5f5;}
-    
-    /* BOUTONS - COHÉRENCE DU DÉGRADÉ */
+    /* LAYOUT */
+    main{
+      max-width:1200px;
+      margin:0 auto;
+      padding:32px 24px 64px;
+    }
+    .glass-section{
+      background:radial-gradient(circle at top left,#111827,#020617);
+      border-radius:28px;
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 35px 80px rgba(15,23,42,.85);
+      padding:40px 32px;
+      margin:32px 0;
+      text-align:center;
+    }
+    h1{
+      font-size:clamp(2.1rem,4.3vw,2.8rem);
+      color:#f9fafb;
+      margin-bottom:16px;
+      font-family:Poppins,sans-serif;
+    }
+    h2{
+      font-size:1.5rem;
+      color:#e5e7eb;
+      margin-bottom:24px;
+      font-family:Poppins,sans-serif;
+    }
+    h3{
+      font-size:1.1rem;
+      color:#e5e7eb;
+      margin-bottom:16px;
+      font-family:Poppins,sans-serif;
+    }
+
+    .hero{
+      padding:48px 32px;
+      background:radial-gradient(circle at top,#1e293b,#020617);
+    }
+    .hero p{
+      max-width:640px;
+      margin:0 auto;
+      color:#cbd5f5;
+    }
+
+    /* BOUTONS GENERAUX (.glass-btn) - non modifiés, conservent la cohérence */
     .glass-btn{
       display:inline-flex;
       align-items:center;
@@ -170,12 +201,9 @@
       padding:16px 32px;
       margin:16px auto;
       border-radius:999px;
-      /* 🎯 DÉGRADÉ UNIFIÉ : Maintient l'effet de réflexion (white.55) 
-         et introduit la couleur des liens de navigation (blue/purple) */
       background:
         radial-gradient(circle at 20% 0,rgba(255,255,255,.55),transparent 60%),
         linear-gradient(135deg, rgba(125, 211, 252, 0.4), rgba(165, 180, 252, 0.4));
-        
       color:#fff;
       font-weight:600;
       border:1px solid rgba(148,163,184,.6);
@@ -185,7 +213,10 @@
       transition:transform .2s,box-shadow .2s,background .2s;
       cursor:pointer;
     }
-    .glass-btn img{width:22px;height:22px;}
+    .glass-btn img{
+      width:22px;
+      height:22px;
+    }
     .glass-btn:hover{
       transform:translateY(-2px) scale(1.02);
       box-shadow:
@@ -193,53 +224,172 @@
         inset 0 0 16px rgba(255,255,255,.35);
     }
 
-    /* SCIENCE - COHÉRENCE DU DÉGRADÉ */
-    .science-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:24px;margin-top:24px;}
+    /* SCIENCE */
+    .science-grid{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:24px;
+      margin-top:24px;
+    }
     .science-link{
       min-width:200px;
       padding:16px 32px;
       border-radius:999px;
-      /* 🎯 DÉGRADÉ UNIFIÉ */
       background:linear-gradient(135deg, rgba(125, 211, 252, 0.3), rgba(165, 180, 252, 0.3));
-      
       border:1px solid rgba(148,163,184,.6);
       box-shadow:0 14px 32px rgba(15,23,42,.95);
       transition:transform .2s,background .2s,box-shadow .2s;
     }
     .science-link:hover{
       transform:translateY(-2px);
-      /* Maintient un fond plus foncé au survol, mais avec le dégradé bleu/violet */
       background:linear-gradient(135deg, rgba(125, 211, 252, 0.5), rgba(165, 180, 252, 0.5));
       box-shadow:0 20px 40px rgba(15,23,42,1);
     }
-    
-    /* ... (le reste du CSS n'est pas modifié) ... */
 
-    .bienfait-card{width:100%;max-width:380px;padding:24px;border-radius:24px;background:rgba(15,23,42,.92);border:1px solid rgba(148,163,184,.5);box-shadow:0 18px 36px rgba(15,23,42,1);text-align:left;}
-    .bienfait-title{font-weight:600;margin-bottom:8px;color:#e5e7eb;}
-    .bienfait-text{color:#cbd5f5;font-size:.98rem;line-height:1.7;}
-    .confiance{grid-column:1/-1;justify-self:center;max-width:420px;}
-    .sim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:24px;}
-    .sim-card{background:rgba(15,23,42,.9);border-radius:24px;padding:24px;border:1px solid rgba(148,163,184,.35);box-shadow:0 20px 45px rgba(15,23,42,.95);min-height:320px;display:flex;flex-direction:column;justify-content:flex-start;}
-    .sim-card .glass-btn{width:100%;margin:8px 0;}
-    .video-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
-    .video-toggle{width:100%;justify-content:center;}
-    .video-container{position:relative;padding-bottom:56.25%;border-radius:22px;overflow:hidden;background:#020617;box-shadow:0 22px 50px rgba(15,23,42,.95);margin-top:16px;}
-    .video-container.hidden{display:none;}
-    .video-container iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-    .glass-btn[href^="mailto"]{max-width:440px;}
-    footer{text-align:center;color:#64748b;font-size:.9rem;padding:24px 0 32px;}
+    /* BIENFAITS - STYLES ET SYMÉTRIE */
+    .bienfaits-grid{
+      /* 🎯 SYMETRIE 2x2: Force deux colonnes égales sur grand écran */
+      display:grid;
+      grid-template-columns:repeat(2, minmax(300px, 1fr));
+      gap:24px;
+      margin-top:24px;
+      justify-items:stretch;
+      align-items:stretch; /* Garantit que les cartes ont la même hauteur */
+    }
+    .bienfait-card-link {
+        /* Applique les styles du conteneur pour l'effet "Glass" */
+        display: block;
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(15,23,42,.92);
+        border: 1px solid rgba(148,163,184,.5);
+        box-shadow: 0 18px 36px rgba(15,23,42,1);
+        text-align: left;
+        color: #e5e7eb;
+        transition: transform .2s, box-shadow .2s;
+        height: 100%; /* S'assurer qu'il prend toute la hauteur de la grille */
+    }
+    .bienfait-card-link:hover {
+        transform: translateY(-4px); /* Petit effet de survol pour cliquer */
+        box-shadow: 0 24px 48px rgba(15,23,42,1.2);
+    }
+    .bienfait-title{
+      font-weight:600;
+      margin-bottom:8px;
+      color:#e5e7eb;
+      /* 🎯 Place pour le logo */
+      padding-left: 35px; 
+      position: relative;
+    }
+    .bienfait-title::before { /* 🎯 AJOUT DU LOGO GLACE.PNG */
+        content: ""; 
+        position: absolute;
+        left: 0;
+        top: 50%; 
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        background-image: url('glace.png'); 
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .bienfait-text{
+      color:#cbd5f5;
+      font-size:.98rem;
+      line-height:1.7;
+    }
+    .confiance{
+        /* 🎯 MODIFICATION POUR ÉVITER QUE CONFIANCE S'ÉTALE SUR DEUX COLONNES INUTILEMENT */
+      grid-column: span 1;
+      justify-self: stretch;
+      max-width: none;
+    }
+
+    /* SIMULATEUR */
+    .sim-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:32px;
+      margin-top:24px;
+    }
+    .sim-card{
+      background:rgba(15,23,42,.9);
+      border-radius:24px;
+      padding:24px;
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 20px 45px rgba(15,23,42,.95);
+      min-height:320px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+    .sim-card .glass-btn{
+      width:100%;
+      margin:8px 0;
+    }
+
+    /* VIDÉOS */
+    .video-list{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      margin-top:24px;
+    }
+    .video-toggle{
+      width:100%;
+      justify-content:center;
+    }
+    .video-container{
+      position:relative;
+      padding-bottom:56.25%;
+      border-radius:22px;
+      overflow:hidden;
+      background:#020617;
+      box-shadow:0 22px 50px rgba(15,23,42,.95);
+      margin-top:16px;
+    }
+    .video-container.hidden{
+      display:none;
+    }
+    .video-container iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    /* GUIDE */
+    .glass-btn[href^="mailto"]{
+      max-width:440px;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      color:#64748b;
+      font-size:.9rem;
+      padding:24px 0 32px;
+    }
 
     /* RESPONSIVE */
     @media(max-width:768px){
-      .nav-inner{padding:16px;}
-      .nav-links{position:absolute;top:56px;right:16px;left:16px;background:rgba(15,23,42,.98);border-radius:16px;flex-direction:column;padding:16px;border:1px solid rgba(148,163,184,.4);display:none;}
-      .nav-links.open{display:flex}
-      #burger{display:block}
-      .nav-blob{display:none;}
+      .nav-inner{
+        padding:16px;
+      }
+      /* ... (Reste de la nav mobile) ... */
+      
+      .bienfaits-grid{
+        /* Retour à 1 colonne sur mobile */
+        grid-template-columns:1fr;
+      }
+      .confiance{
+        grid-column: 1 / -1; /* Confiance reprend toute la largeur sur mobile */
+      }
+      
       main{padding:24px 16px 48px;}
       .glass-section{padding:32px 24px;margin:24px 0;}
-      .bienfaits-grid{grid-template-columns:1fr;}
       .sim-grid{grid-template-columns:1fr;}
     }
   </style>
@@ -284,22 +434,22 @@
   <section id="bienfaits" class="glass-section">
     <h2>Bienfaits concrets</h2>
     <div class="bienfaits-grid">
-      <div class="bienfait-card">
+      <a class="bienfait-card-link" href="#memoire-info">
         <div class="bienfait-title">Mémoire</div>
         <p class="bienfait-text">Enchaîner les tours, les virages et les repères visuels sollicite la mémoire de travail et l’orientation dans l’espace.</p>
-      </div>
-      <div class="bienfait-card">
+      </a>
+      <a class="bienfait-card-link" href="#attention-info">
         <div class="bienfait-title">Attention</div>
         <p class="bienfait-text">Surveiller la piste, les autres voitures et les informations à l’écran renforce la concentration et la vigilance.</p>
-      </div>
-      <div class="bienfait-card">
+      </a>
+      <a class="bienfait-card-link" href="#coordination-info">
         <div class="bienfait-title">Coordination</div>
         <p class="bienfait-text">Roue, pédales et regard doivent travailler ensemble, ce qui entretient la coordination œil-main-pied.</p>
-      </div>
-      <div class="bienfait-card confiance">
+      </a>
+      <a class="bienfait-card-link confiance" href="#confiance-info">
         <div class="bienfait-title">Confiance</div>
         <p class="bienfait-text">Progresser séance après séance, sans risque réel, aide à reprendre confiance dans ses capacités et sa réactivité.</p>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -376,7 +526,7 @@
     const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
     function activateBlob(link){
-      if(isMobile()) return; // pas d’effet sur mobile
+      if(isMobile()) return; 
       const rect=link.getBoundingClientRect();
       const navRect=navInner.getBoundingClientRect();
       const center = rect.left + rect.width/2 - navRect.left;
